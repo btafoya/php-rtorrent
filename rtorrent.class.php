@@ -4,9 +4,9 @@ class rTorrent extends rpcClient {
 	private $_downloadscache = false;
 	function loadURL($string,$start = false) {
 		if ($start) { 
-			var_dump($this->request("load_start", array($string)));
+			return $this->request("load_start", array($string));
 		} else {
-			var_dump($this->request("load", array($string)));
+			return $this->request("load", array($string));
 		}
 	}
 	function getDownloads($view = "") {
