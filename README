@@ -1,0 +1,7 @@
+Rtorrent XML-RPC interface for PHP.
+Features:
+	- Starting torrents
+	- Stopping torrents
+	- Listing of torrents.
+
+See my tv-tools project on how to use it.
