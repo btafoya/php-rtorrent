@@ -22,7 +22,20 @@ class rTorrent extends rpcClient
     public function getDownloads($view = '')
     {
         $download_arr = array();
-        $downloads = $this->multirequest('d.multicall', array($view, 'd.get_base_filename=', 'd.get_name=', 'd.get_base_path=', 'd.get_complete=', 'd.get_hash=', 'd.get_local_id='));
+        $downloads = $this->multirequest(
+            'd.multicall',
+            [
+                $view,
+                'd.get_base_filename=',
+                'd.get_name=',
+                'd.get_base_path=',
+                'd.get_complete=',
+                'd.get_hash=',
+                'd.get_local_id=',
+                'd.get_ratio='
+            ]
+        );
+
         foreach ($downloads as $download) {
             $download_arr[] = new rTorrentDownload($this, $download);
         }

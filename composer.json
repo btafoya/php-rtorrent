@@ -1,7 +1,9 @@
 {
     "autoload": {
         "files": [
-            "xmlrpc.class.php"
+            "xmlrpc.class.php",
+            "rtorrent.class.php",
+            "rTorrentDownload.php"
         ]
     }
 }

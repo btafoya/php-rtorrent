@@ -8,6 +8,7 @@ class rTorrentDownload
     private $hash;
     private $filename;
     private $localid;
+    private $ratio;
 
     public function __construct($server, $arr)
     {
@@ -17,11 +18,34 @@ class rTorrentDownload
         $this->name = $arr['d.get_name='];
         $this->hash = $arr['d.get_hash='];
         $this->localid = $arr['d.get_local_id='];
+        $this->ratio = $arr['d.get_ratio='];
     }
-    
+
+    private function removeDirectory($directory)
+    {
+        if (is_dir($directory)) {
+            $objects = scandir($directory);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (is_dir($directory."/".$object)) {
+                        $this->removeDirectory($directory."/".$object);
+                    } else {
+                        unlink($directory."/".$object);
+                    }
+                }
+            }
+            $this->removeDirectory($directory);
+        }
+    }
+
     private function _command($command)
     {
         $this->server->request($command, array($this->hash));
+    }
+
+    public function getRatio()
+    {
+        return $this->ratio;
     }
 
     public function getName()
@@ -81,6 +105,7 @@ class rTorrentDownload
     {
         $this->close();
         $this->_command('d.erase');
+        $this->removeDirectory($this->getPathAndFilename());
     }
 
     public function delete()
