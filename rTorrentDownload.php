@@ -21,23 +21,6 @@ class rTorrentDownload
         $this->ratio = $arr['d.get_ratio='];
     }
 
-    private function removeDirectory($directory)
-    {
-        if (is_dir($directory)) {
-            $objects = scandir($directory);
-            foreach ($objects as $object) {
-                if ($object != "." && $object != "..") {
-                    if (is_dir($directory."/".$object)) {
-                        $this->removeDirectory($directory."/".$object);
-                    } else {
-                        unlink($directory."/".$object);
-                    }
-                }
-            }
-            $this->removeDirectory($directory);
-        }
-    }
-
     private function _command($command)
     {
         $this->server->request($command, array($this->hash));
@@ -105,7 +88,6 @@ class rTorrentDownload
     {
         $this->close();
         $this->_command('d.erase');
-        $this->removeDirectory($this->getPathAndFilename());
     }
 
     public function delete()
