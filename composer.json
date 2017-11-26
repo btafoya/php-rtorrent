@@ -1,9 +1,9 @@
 {
-  "name": "btafoya/php-rtorrent/",
+  "name": "btafoya/php-rtorrent",
   "type": "library",
   "license": "MIT",
   "description": "Fork of https://github.com/lbr88/php-rtorrent.",
-  "homepage": "https://briantafoya.com/",
+  "homepage": "https://briantafoya.com",
   "authors": [
     {
       "name": "Brian Tafoya",
