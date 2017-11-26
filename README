@@ -1,9 +1,12 @@
 Fork of https://github.com/lbr88/php-rtorrent with up-to-date composer settings and packagist implementation, as well as future updates.
 
 Rtorrent XML-RPC interface for PHP.
+
 Features:
  * Starting torrents
  * Stopping torrents
  * Listing of torrents.
 
 See tv-tools https://github.com/lbr88/tv-tools project on how to use it.
+
+To install, use composer: composer require btafoya/php-rtorrent
