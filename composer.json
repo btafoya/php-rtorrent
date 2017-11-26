@@ -1,9 +1,22 @@
 {
-    "autoload": {
-        "files": [
-            "xmlrpc.class.php",
-            "rtorrent.class.php",
-            "rTorrentDownload.php"
-        ]
+  "name": "btafoya/php-rtorrent/",
+  "type": "library",
+  "license": "MIT",
+  "description": "Fork of https://github.com/lbr88/php-rtorrent.",
+  "homepage": "https://briantafoya.com/",
+  "authors": [
+    {
+      "name": "Brian Tafoya",
+      "email": "btafoya@briantafoya.com",
+      "homepage": "https://www.briantafoya.com",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+      "files": [
+          "xmlrpc.class.php",
+          "rtorrent.class.php",
+          "rTorrentDownload.php"
+      ]
+  }
 }
